@@ -4,14 +4,14 @@
 The WebScanCrawler project is a simple web crawler and vulnerability scanner designed to evaluate the security of a website. It checks for basic vulnerabilities like missing HTTP security headers, outdated software versions, and improperly configured forms. Here's a breakdown of the project.
 
 ### Features
- 1. Input:
+ # 1. Input:
    - Accepts a URL as input to start the scanning process.
 
- 2. Crawling:
+ # 2. Crawling:
    - Visits the given URL and follows all internal links to crawl the website comprehensively.
    - Avoids crawling external links or non-HTML resources.
 
- 3. Vulnerability Checks:
+ # 3. Vulnerability Checks:
    - HTTP Security Headers:
       - Checks for headers like X-Content-Type-Options, Strict-Transport-Security, and Content-Security-Policy.
    - Outdated Software Versions:
@@ -19,7 +19,7 @@ The WebScanCrawler project is a simple web crawler and vulnerability scanner des
    - Forms Security:
       - Identifies forms without action attributes or forms using method="GET" instead of POST.
 
- 4.Report Generation:
+ # 4.Report Generation:
    - Generates a detailed vulnerability report listing all issues found during the scan.
 
 ## 1 Installation
