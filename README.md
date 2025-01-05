@@ -1,25 +1,26 @@
-# web crawler
+#### web crawler
 
 ## Overview
- log parser is a basic log parsing and alerting system designed to process log files from security systems like SIEM (Security Information and Event Management) or other tools. It scans log files for specific patterns, such as error messages or suspicious activities, and generates alerts when such patterns are detected.<br>
+The WebScanCrawler project is a simple web crawler and vulnerability scanner designed to evaluate the security of a website. It checks for basic vulnerabilities like missing HTTP security headers, outdated software versions, and improperly configured forms. Here's a breakdown of the project.
 
- In this project, I have implemented both the frontend and backend components to achieve a seamless log parser and alart system. The frontend provides a user-friendly interface with a button to generate a __logger.log__ file. Upon clicking the button, the log file is automatically downloaded to the user's local machine.
-
-Additionally, the interface allows users to upload the generated log file back into the system. Once the file is uploaded, the application processes it to identify and extract error logs, displaying them as the output. This streamlined process ensures efficient log generation, analysis, and error detection, making it a practical tool for log management.<br>
-
-This project demonstrates my ability to handle both frontend and backend development. The frontend, built using __React, is deployed on Vercel__, while the backend, developed with __Java Spring Boot, is hosted on Render__. This setup highlights my skills in creating a full-stack application and managing deployment across different platforms.
-
-[visit the page](https://log-parser-frontend.vercel.app/)
-
-## The whole process of system
-When the user clicks the Generate Log button, a request is sent to the backend, where the generate-log controller handles the request. This controller processes the request and creates a logger.log file, which is then downloaded to the user's local machine.
-
-Afterward, the user can upload the generated log file back to the system and click the Analyze button. This triggers a request to the backend, directed to the process-log controller. The controller processes the uploaded log file, identifies error logs, and sends the results back to the frontend. The frontend then displays the extracted error logs in a user-friendly format.
 ### Features
- - Parses log files to detect predefined suspicious patterns.
- - Generates alerts when patterns like "failed login," "unauthorized access," or "malicious activity detected" are    found.
- - Outputs alerts with timestamps for quick review.
- - Easy-to-use system for analyzing security logs.
+ 1. Input:
+   - Accepts a URL as input to start the scanning process.
+
+ 2. Crawling:
+   - Visits the given URL and follows all internal links to crawl the website comprehensively.
+   - Avoids crawling external links or non-HTML resources.
+
+ 3. Vulnerability Checks:
+   - HTTP Security Headers:
+      - Checks for headers like X-Content-Type-Options, Strict-Transport-Security, and Content-Security-Policy.
+   - Outdated Software Versions:
+      - Looks for software version information in the HTTP response headers or webpage content (e.g., "Apache/2.4.6").
+   - Forms Security:
+      - Identifies forms without action attributes or forms using method="GET" instead of POST.
+
+ 4.Report Generation:
+   - Generates a detailed vulnerability report listing all issues found during the scan.
 
 ### Table of Contents
  1 Installation
@@ -35,28 +36,35 @@ Afterward, the user can upload the generated log file back to the system and cli
 ### Steps to Install
 1. Clone the repository:
    ```bash
-     https://github.com/ujwalbholan/logParserFrontend.git
+     https://github.com/ujwalbholan/webScanCrawler.git
 
 2 . change directory: cd fileName
 
 3 . install npm: npm Install
 
-4 . run the file: npm run dev
+4 . run the file: node index.js
 
 
 ## 2 input Format:
-    2025-01-04 10:30:00 - User login successful
-    2025-01-04 10:45:00 - Unauthorized access attempt detected
-    2025-01-04 11:00:00 - Malicious activity detected in module X
-    2025-01-04 11:15:00 - Failed login attempt by user admin 
+ https://example.com
 
 ## 3 outpur Example:
-     ALERT: UNAUTHORIZED ACCESS DETECTED AT 2025-01-04 10:45:00
-     ALERT: MALICIOUS ACTIVITY DETECTED AT 2025-01-04 11:00:00
-     ALERT: FAILED LOGIN DETECTED AT 2025-01-04 11:15:00
+      Crawling: https://example.com
+
+      VULNERABILITIES FOUND ON: https://example.com
+      - MISSING HTTP SECURITY HEADER: Strict-Transport-Security
+      - FORM WITHOUT PROPER METHOD ATTRIBUTE: /contact-form
+
+      Crawling: https://example.com/about
+
+      No vulnerabilities found on: https://example.com/about
+
 
 ## 4 Future Enhancements:
- - i can inhannce the frontend looks more appelinng.
- - its static i can make it more dynamic.
- - i can add the automation activities like when the alart is detected then it will send the mail to QA or send the message in the slack so all the developer are aware about the error.
+  -  Extended Vulnerability Scanning eg for cors, sql ,csrf etc.
+  - Improved Crawl Depth and URL Handling.
+  - Reporting Enhancements.
+  - Authentication and Authorization.
+  - Scheduling and Automation.
+
  
