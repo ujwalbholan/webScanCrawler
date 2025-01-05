@@ -22,12 +22,6 @@ The WebScanCrawler project is a simple web crawler and vulnerability scanner des
  4.Report Generation:
    - Generates a detailed vulnerability report listing all issues found during the scan.
 
-### Table of Contents
- 1 Installation
- 2 Input Format
- 3 Output Example
- 4 Future Enhancements
-
 ## 1 Installation
 
 ### Prerequisites
